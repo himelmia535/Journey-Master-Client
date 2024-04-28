@@ -4,9 +4,9 @@ import useAuth from "../hooks/useAuth";
 const Navbar = () => {
   const {logout, user} = useAuth()
   const navlinks = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/allTouristsSpot">All Tourists Spot</NavLink></li>
-    </>
+  <li><NavLink to="/">Home</NavLink></li>
+  <li><NavLink to="/allTouristsSpot">All Tourists Spot</NavLink></li>
+</>
     return (
         <div>
             <div className="navbar bg-base-100 shadow-lg px-4 sm:px-8 fixed z-10">
@@ -19,7 +19,6 @@ const Navbar = () => {
         {navlinks}
       </ul>
     </div>
-    {/* <Link to="/" className="btn btn-ghost text-base lg:text-4xl">Fantasy Home</Link> */}
     <Link to="/"><img className="w-14 h-14" src="https://i.ibb.co/0cn7PrF/jm.png" alt="" /></Link>
   </div>
   <div className="navbar-center hidden lg:flex">
@@ -29,7 +28,7 @@ const Navbar = () => {
   </div>
   <div className="navbar-end gap-3">
    {
-    user?.email? <div className="dropdown dropdown-end">
+    user? <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar" >
         <div className="w-12 rounded-full">
             <img src={user.photoURL} alt="" />
@@ -40,13 +39,11 @@ const Navbar = () => {
           <button className="btn btn-sm btn-ghost">{user.displayName}</button>
         </li>
         <li>
-          <button onClick={logout} className="btn btn-sm btn-ghost">Logout</button>
+          <button onClick={logout} className="btn btn-sm btn-ghost hover:text-red-500">Logout</button>
         </li>
       </ul>
       </div>
-
       :
-
       <div className="flex gap-2">
         <div>
             <NavLink to="/login" className="relative rounded px-5 py-2.5 overflow-hidden group bg-green-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
@@ -61,7 +58,7 @@ const Navbar = () => {
 </NavLink>
         </div>
       </div>
-        
+
    }
   </div>
 </div>
