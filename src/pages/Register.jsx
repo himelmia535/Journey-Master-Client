@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
 import { useState } from "react";
-// import { toast } from 'react-toastify';
 
 const Register = () => {
-  const {createUser} = useAuth();
+  const {createUser, updateUserProfile} = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const[registerError, setRegisterError] = useState('');
   const[success, setSuccess] = useState('');
@@ -16,8 +15,13 @@ const Register = () => {
     handleSubmit,
     formState: { errors }
   } = useForm();
+
+  // navigation system
+  const navigate = useNavigate()
+  const from = '/';
+
   const onSubmit = (data) => {
-    const{email, password} = data
+    const{email, password, image, fullName} = data
     console.log(data)
 
     // Password verification
@@ -50,15 +54,20 @@ const Register = () => {
          return;
      }
 
+     // create user and update profile
     createUser(email, password)
-      .then(result => {
-        // Show success toast
-        setSuccess("Registration successful!");
-        console.log(result);
+      .then(() => {
+        updateUserProfile(fullName, image)
+        .then(()=>{
+            navigate(from);
+        })
       })
       .catch(error => {
         // Handle registration errors
         setRegisterError("Registration failed. Please try again.");
+        setTimeout(() => {
+          setRegisterError('');
+      }, 4000);
         console.error(error);
       });
   };

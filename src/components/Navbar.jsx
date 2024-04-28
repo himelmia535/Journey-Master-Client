@@ -31,14 +31,17 @@ const Navbar = () => {
   <div className="navbar-end gap-3">
    {
     user? <div className="dropdown dropdown-end">
-      <label tabIndex={0} className="btn btn-ghost btn-circle avatar" >
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar relative" >
         <div className="w-12 rounded-full">
-            <img src={user.photoURL} alt="" />
+            <img src={user?.photoURL || "https://i.ibb.co/WsZ4wFT/Rectangle-7.png"} alt="" />
         </div>
+        {/* <span className="tooltip bg-black text-white rounded py-1 px-2 absolute bottom-full pointer-events-none  transition-opacity duration-300">
+                    {user?.displayName || "Not Found"}
+        </span> */}
       </label>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
         <li>
-          <button className="btn btn-sm btn-ghost">{user.displayName}</button>
+          <button className="btn btn-sm btn-ghost">{user?.displayName || "Not Found"}</button>
         </li>
         <li>
           <button onClick={logout} className="btn btn-sm btn-ghost hover:text-red-500">Logout</button>
@@ -60,7 +63,6 @@ const Navbar = () => {
 </NavLink>
         </div>
       </div>
-
    }
   </div>
 </div>
