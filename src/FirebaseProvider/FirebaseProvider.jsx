@@ -35,6 +35,7 @@ const FirebaseProvider = ({children}) => {
 
     // logout
     const logout = () =>{
+        setUser(null)
         signOut(auth)
     }
 
@@ -53,7 +54,8 @@ const FirebaseProvider = ({children}) => {
         signInUser,
         googleLogin,
         githubLogin,
-        logout
+        logout,
+        user
     }
 
     return (
