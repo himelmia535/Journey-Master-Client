@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const {createUser} = useContext(AuthContext)
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -53,7 +55,12 @@ const Register = () => {
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input name="password" type="password" placeholder="password" className="input input-bordered" {...register("password", { required: true })} />
+          <input name="password" type={showPassword ? "text" : "password"} placeholder="password" className="input input-bordered" {...register("password", { required: true })} />
+          <span className="absolute mt-14 ml-64" onClick={()=> setShowPassword(!showPassword)}>
+	            {
+	              showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+	            }
+            </span>
           {errors.password && <span className="text-red-500">This field is required</span>}
         </div>
         <div className="form-control mt-6">
