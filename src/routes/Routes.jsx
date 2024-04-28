@@ -4,6 +4,10 @@ import Home from "../pages/Home";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import AllTouristsSpot from "../pages/AllTouristsSpot";
+import PrivateAddTouristsSpot from "../pages/PrivateAddTouristsSpot";
+import AddTouristsSpot from "../pages/AddTouristsSpot";
+import PrivateMyList from "../pages/PrivateMyList";
+import MyList from "../pages/MyList";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +21,14 @@ const router = createBrowserRouter([
             {
                 path: '/allTouristsSpot',
                 element: <AllTouristsSpot></AllTouristsSpot>,
+            },
+            {
+                path: '/addTouristsSpot',
+                element: <PrivateAddTouristsSpot><AddTouristsSpot></AddTouristsSpot></PrivateAddTouristsSpot> 
+            },
+            {
+                path: '/myList',
+                element: <PrivateMyList><MyList></MyList></PrivateMyList>
             },
             {
                 path: '/register',
