@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form"
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const {createUser} = useContext(AuthContext)
@@ -58,6 +59,7 @@ const Register = () => {
         <div className="form-control mt-6">
           <button className="btn btn-primary">Register</button>
         </div>
+        
       </form>
     </div>
   </div>
