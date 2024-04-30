@@ -18,7 +18,8 @@ const Login = () => {
     const{email, password} = data;
     signInUser(email, password)
       .then(result => {
-        console.log(result.user);
+        console.log(result.user);// issue
+        // const from = '/';
       })
       .catch(error =>{
         console.log(error)
