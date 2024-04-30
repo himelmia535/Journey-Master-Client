@@ -10,6 +10,7 @@ import PrivateMyList from "../pages/PrivateMyList";
 import MyList from "../pages/MyList";
 import Details from "../components/Details";
 import UpdateSpot from "../components/UpdateSpot";
+import NotFoundPage from "../components/NotFoundPage";
 
 const router = createBrowserRouter([
     {
@@ -19,17 +20,17 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/touristsSpot')
+                loader: () => fetch('https://journey-master-server.vercel.app/touristsSpot')
             },
             {
                 path: '/allTouristsSpot',
                 element: <AllTouristsSpot></AllTouristsSpot>,
-                loader: () => fetch('http://localhost:5000/touristsSpot')
+                loader: () => fetch('https://journey-master-server.vercel.app/touristsSpot')
             },
             {
                 path: '/details/:id',
                 element: <Details></Details>,
-                loader: ({params}) => fetch(`http://localhost:5000/touristsSpot/${params.id}`)
+                loader: ({params}) => fetch(`https://journey-master-server.vercel.app/touristsSpot/${params.id}`)
             },
             {
                 path: '/addTouristsSpot',
@@ -38,12 +39,12 @@ const router = createBrowserRouter([
             {
                 path: '/myList',
                 element: <PrivateMyList><MyList></MyList></PrivateMyList>,
-                loader: () => fetch('http://localhost:5000/touristsSpot')
+                loader: () => fetch('https://journey-master-server.vercel.app/touristsSpot')
             },
             {
                 path: 'mylist/updatespot/:id',
                 element: <UpdateSpot></UpdateSpot>,
-                loader: ({params}) => fetch(`http://localhost:5000/touristsSpot/${params.id}`)
+                loader: ({params}) => fetch(`https://journey-master-server.vercel.app/touristsSpot/${params.id}`)
             },
             {
                 path: '/register',
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
                 path: '/login',
                 element: <Login></Login>,
             },
+            {
+                path: '*',
+                element: <NotFoundPage />
+            }
         ]
     }
 ]);

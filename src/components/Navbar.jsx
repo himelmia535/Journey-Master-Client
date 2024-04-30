@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { useEffect, useState } from "react";
+import 'react-tooltip/dist/react-tooltip.css'
 
 const Navbar = () => {
   const {logout, user} = useAuth()
@@ -61,9 +62,9 @@ const [theme, setTheme] = useState('light')
         <div className="w-12 rounded-full">
             <img src={user?.photoURL || "https://i.ibb.co/WsZ4wFT/Rectangle-7.png"} alt="" />
         </div>
-        {/* <span className="tooltip bg-black text-white rounded py-1 px-2 absolute bottom-full pointer-events-none  transition-opacity duration-300">
-                    {user?.displayName || "Not Found"}
-        </span> */}
+        {/* <div>
+          <a data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName || "Not Found"}></a>
+        </div> */}
       </label>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
         <li>

@@ -11,8 +11,6 @@ const UpdateSpot = () => {
     seasonality,
     travel_time,
     totaVisitorsPerYear,
-    username,
-    useremail,
     message,
     location,
     photo,
@@ -29,8 +27,6 @@ const UpdateSpot = () => {
     const seasonality = form.seasonality.value;
     const travel_time = form.travel_time.value;
     const totaVisitorsPerYear = form.totaVisitorsPerYear.value;
-    const username = form.username.value;
-    const useremail = form.useremail.value;
     const message = form.querySelector("#message").value;
     const location = form.location.value;
     const photo = form.photo.value;
@@ -42,8 +38,6 @@ const UpdateSpot = () => {
       seasonality,
       travel_time,
       totaVisitorsPerYear,
-      username,
-      useremail,
       message,
       location,
       photo,
@@ -52,7 +46,7 @@ const UpdateSpot = () => {
     console.log(updatedSpot);
 
     // send data to the server
-    fetch(`http://localhost:5000/touristsSpot/${_id}`, {
+    fetch(`https://journey-master-server.vercel.app/touristsSpot/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
