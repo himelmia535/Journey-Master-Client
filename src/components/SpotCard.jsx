@@ -49,12 +49,12 @@ const SpotCard = ({ spot, spots, setspots }) => {
     <div className="card glass">
     <figure><img src={photo} alt="car!"/></figure>
     <div className="card-body">
-      <h2 className="text-2xl font-semibold">{name}</h2>
-      <div className="md: flex justify-between">
-        <h2 className="text-base"><span className="font-medium">Average Cost:</span> {cost} $</h2>
+      <h2 className="text-2xl font-semibold text-green-500">{name}</h2>
+      <div className="">
+        <h2 className="text-base"><span className="font-medium">Average Cost:</span> {cost}</h2>
         <h2 className="text-base"><span className="font-medium">Total Visitors Per Year:</span> {totaVisitorsPerYear}</h2>
       </div>
-      <div className="md: flex justify-between">
+      <div className="">
         <h2 className="text-base"><span className="font-medium">Travel Time:</span> {travel_time}</h2>
         <h2 className="text-base"><span className="font-medium">Seasonality:</span> {seasonality}</h2>
       </div>
