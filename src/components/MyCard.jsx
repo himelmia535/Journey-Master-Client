@@ -78,7 +78,7 @@ const MyCard = ({ spot, spots, setspots }) => {
             >
               View Details!
             </Link>
-            <Link>
+            <Link to={`updatespot/${_id}`}>
               <button className="btn">Edit</button>
             </Link>
             <button

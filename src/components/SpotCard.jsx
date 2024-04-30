@@ -18,34 +18,6 @@ const SpotCard = ({ spot, spots, setspots }) => {
     photo,
   } = spot;
 
-  //   const handleDelete = (_id) => {
-  //     console.log(_id);
-  //     Swal.fire({
-  //       title: "Are you sure?",
-  //       text: "You won't be able to revert this!",
-  //       icon: "warning",
-  //       showCancelButton: true,
-  //       confirmButtonColor: "#3085d6",
-  //       cancelButtonColor: "#d33",
-  //       confirmButtonText: "Yes, delete it!",
-  //     }).then((result) => {
-  //       if (result.isConfirmed) {
-  //         fetch(`http://localhost:5000/spot/${_id}`, {
-  //           method: "DELETE",
-  //         })
-  //           .then((res) => res.json())
-  //           .then((data) => {
-  //             console.log(data);
-  //             if (data.deletedCount > 0) {
-  //               Swal.fire("Deleted!", "Your spot has been deleted.", "success");
-  //               const remaining = spots.filter((cof) => cof._id !== _id);
-  //               setspots(remaining);
-  //             }
-  //           });
-  //       }
-  //     });
-  //   };
-
   return (
     <div className="card glass">
       <figure>

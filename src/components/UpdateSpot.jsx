@@ -1,6 +1,24 @@
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-const Addspot = () => {
-  const handleAddSpot = (event) => {
+
+const UpdateSpot = () => {
+  const spot = useLoaderData();
+  const {
+    _id,
+    name,
+    country,
+    cost,
+    seasonality,
+    travel_time,
+    totaVisitorsPerYear,
+    username,
+    useremail,
+    message,
+    location,
+    photo,
+  } = spot;
+
+  const handleUpdateSpot = (event) => {
     event.preventDefault();
 
     const form = event.target;
@@ -17,7 +35,7 @@ const Addspot = () => {
     const location = form.location.value;
     const photo = form.photo.value;
 
-    const newSpot = {
+    const updatedSpot = {
       name,
       country,
       cost,
@@ -30,36 +48,36 @@ const Addspot = () => {
       location,
       photo,
     };
-    console.log(newSpot);
+
+    console.log(updatedSpot);
 
     // send data to the server
-    fetch("http://localhost:5000/touristsSpot", {
-      method: "POST",
+    fetch(`http://localhost:5000/touristsSpot/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newSpot),
+      body: JSON.stringify(updatedSpot),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
-            text: "Tourists Spot Added Successfully",
+            text: "Spot Updated Successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
         }
       });
   };
-
   return (
     <div className="bg-[#F4F3F0] p-24 -mt-12">
       <h2 className="text-xl font-extrabold text-purple-600 md:text-3xl">
-        Add a Tourists Spot
+        Update Tourist Spot : {name}
       </h2>
-      <form onSubmit={handleAddSpot}>
+      <form onSubmit={handleUpdateSpot}>
         {/* tourists spot name and country name*/}
         <div className="md:flex mb-6">
           <div className="form-control md:w-1/2">
@@ -154,7 +172,7 @@ const Addspot = () => {
           <div className="mb-6">
             <div className="form-control w-full">
               <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-              Short Description
+                Short Description
               </label>
               <textarea
                 id="message"
@@ -228,7 +246,7 @@ const Addspot = () => {
         </div>
         <input
           type="submit"
-          value="Add Spot"
+          value="Update Spot"
           className="btn text-xl w-full bg-slate-500 hover:bg-green-600 text-white"
         />
       </form>
@@ -236,4 +254,4 @@ const Addspot = () => {
   );
 };
 
-export default Addspot;
+export default UpdateSpot;
