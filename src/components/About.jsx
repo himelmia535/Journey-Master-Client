@@ -9,11 +9,11 @@ const About = () => {
   }, []);
   return (
     <div>
-      <section className="bg-gray-100 py-12 px-4">
+      <section className="bg-gray-100 rounded-full py-12 px-4">
         <div className="container mx-auto">
           <h2
             data-aos="fade-up"
-            className="text-3xl font-bold text-center mb-6"
+            className="text-2xl font-bold text-purple-600 text-center mb-6 md:text-5xl"
           >
             About Journey Master
           </h2>

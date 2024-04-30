@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "animate.css";
 // import Swal from "sweetalert2";
 
 const SpotCard = ({ spot, spots, setspots }) => {
