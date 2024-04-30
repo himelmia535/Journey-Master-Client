@@ -183,35 +183,6 @@ const UpdateSpot = () => {
             </div>
           </div>
         </form>
-        {/* user name and user eamil*/}
-        <div className="md:flex mb-6">
-          <div className="form-control md:w-1/2">
-            <label className="label">
-              <span className="label-text font-medium">User Name</span>
-            </label>
-            <label className="input-group">
-              <input
-                type="text"
-                name="username"
-                placeholder="User Name"
-                className="input input-bordered w-full"
-              />
-            </label>
-          </div>
-          <div className="form-control md:w-1/2 ml-4">
-            <label className="label">
-              <span className="label-text font-medium">User Email</span>
-            </label>
-            <label className="input-group">
-              <input
-                type="text"
-                name="useremail"
-                placeholder="User Email"
-                className="input input-bordered w-full"
-              />
-            </label>
-          </div>
-        </div>
         {/* location */}
         <div className="mb-6">
           <div className="form-control w-full">

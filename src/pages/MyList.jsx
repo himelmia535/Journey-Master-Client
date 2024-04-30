@@ -7,7 +7,7 @@ const MyList = () => {
   const [spots, setSpots] = useState(loadedSpot);
     return (
         <div className='m-20'>
-      <div className='grid md:grid-cols-2 gap-4'>
+      <div className=''>
         {
           spots.map(spot => <MyCard
             key={spot._id}
