@@ -3,6 +3,7 @@ import FirebaseProvider from "../FirebaseProvider/FirebaseProvider";
 import Slider from "../components/Slider";
 import SpotCard from "../components/SpotCard";
 import { useLoaderData } from "react-router-dom";
+import About from "../components/About";
 
 const Home = () => {
   const loadedSpot = useLoaderData();
@@ -27,6 +28,8 @@ const Home = () => {
           ))}
         </div>
       </div>
+
+      <About></About>
 
       <FirebaseProvider></FirebaseProvider>
     </div>
